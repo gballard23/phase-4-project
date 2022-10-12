@@ -12,6 +12,11 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_resp
         render json: player
     end 
 
+    def create 
+        player = Player.create(player_params)
+        render json: player, status: :created 
+    end
+
     private 
 
     def find_player 
