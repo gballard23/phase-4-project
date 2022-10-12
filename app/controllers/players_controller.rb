@@ -23,6 +23,12 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_resp
         render json: player
     end
 
+    def destroy
+        player = find_player
+        player.destroy
+        head :no_content
+    end
+    
     private 
 
     def find_player 
