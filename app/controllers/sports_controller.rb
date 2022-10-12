@@ -12,6 +12,11 @@ def show
     render json: sport
 end 
 
+def create 
+    sport = Sport.create(sport_params)
+    render json: sport, status: :created 
+end
+
 private 
 
 def find_sport 
