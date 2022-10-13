@@ -4,7 +4,7 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_resp
 
 def index 
     sports = Sport.all 
-    render json: sports 
+    render json: sports, include: ['players', 'players.coaches' ]
 end 
 
 def show 
