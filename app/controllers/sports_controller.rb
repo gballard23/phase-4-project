@@ -17,6 +17,12 @@ def create
     render json: sport, status: :created 
 end
 
+def destroy 
+    sport = find_sport
+    sport.destroy
+    head :no_content 
+end
+
 private 
 
 def find_sport 
